@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+
+    <script src="https://sdk.twilio.com/js/video/releases/2.24.1/twilio-video.min.js"></script>
+
+    <script>
+        const Video = Twilio.Video;
+
+// Created API Key SK7a0a3ad54458f38c2c87c5932635bf20 and stored the secret in Config. See: https://www.twilio.com/console/runtime/api-keys/SK7a0a3ad54458f38c2c87c5932635bf20
+
+
+// Copy/paste this video token into your test application:
+let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzdhMGEzYWQ1NDQ1OGYzOGMyYzg3YzU5MzI2MzViZjIwLTE2NjQyNzM2NzEiLCJncmFudHMiOnsiaWRlbnRpdHkiOiJBQzQ5NGM0MjhmZmY4ZTJlOGVjMjE4ZTY0YTYxMTkyM2Q3IiwidmlkZW8iOnt9fSwiaWF0IjoxNjY0MjczNjcxLCJleHAiOjE2NjQyNzcyNzEsImlzcyI6IlNLN2EwYTNhZDU0NDU4ZjM4YzJjODdjNTkzMjYzNWJmMjAiLCJzdWIiOiJBQzQ5NGM0MjhmZmY4ZTJlOGVjMjE4ZTY0YTYxMTkyM2Q3In0.gIYDVP5g-dfO8JuKJ51-0L8idzwYrEIS7PvCS-GcbZ0";
+ 
+Video.connect(token, { name:'my-new-room' }).then(room => {
+  console.log(`Successfully joined a Room: ${room}`);
+  room.on('participantConnected', participant => {
+    console.log(`A remote Participant connected: ${participant}`);
+  });
+}, error => {
+  console.error(`Unable to connect to Room: ${error.message}`);
+});
+
+
+Video.createLocalVideoTrack().then(function(videoTrack) {
+  console.log('videoTrack', videoTrack);
+  const videoElement = videoTrack.attach();
+  document.body.appendChild(videoElement);
+});
+    </script>
+
+
+
+    <!-- <script>
+        const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzBhYzVlMDllYzg2YzdmZjBjOTQ3YTE2MzJmZThlODdjLTE1MTc4NjQyMDAiLCJpc3MiOiJTSzBhYzVlMDllYzg2YzdmZjBjOTQ3YTE2MzJmZThlODdjIiwic3ViIjoiQUNmZTA2M2U3YzlkYmY2MDZjODQ1MTNjOWQwMmY5YmZmYSIsImV4cCI6MTUxNzg2NzgwMCwiZ3JhbnRzIjp7ImlkZW50aXR5IjoidGVzdCIsInZpZGVvIjp7InJvb20iOiJ0ZXN0In19fQ.l15uT1eaUqbIFr2JKbm2V7G3QmENV70M1t5qYAu-xYg';
+
+Twilio.Video.connect(token, {name:'my-new-room'}).then(function(room) {
+  console.log('Successfully joined a Room: ', room);
+  room.on('participantConnected', function(participant) {
+    console.log('A remote Participant connected: ', participant);
+  })
+}, function(error) {
+    console.error('Unable to connect to Room: ' +  error.message);
+});
+
+Twilio.Video.createLocalVideoTrack().then(function(videoTrack) {
+  console.log('videoTrack', videoTrack);
+  const videoElement = videoTrack.attach();
+  document.body.appendChild(videoElement);
+});
+    </script> -->
+
+    
+</body>
+</html>
