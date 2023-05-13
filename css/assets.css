@@ -484,7 +484,7 @@
   background-size: 14px 44px !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
-  background: #ffffff17;
+  background: #006aff;
   border-radius: 70px;
 }
 .swiper-button-prev.swiper-button-disabled,
@@ -1071,7 +1071,7 @@ button.swiper-pagination-bullet {
 		top:50%;
 		margin-left:-40px;
 		margin-top:-40px;
-		background:url(owl.video.play.png) no-repeat;
+		background:url(owl.video.play.webp) no-repeat;
 		cursor:pointer;
 		z-index:1;
 		-webkit-backface-visibility:hidden;

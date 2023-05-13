@@ -875,7 +875,7 @@ Primary use:	Showcase Portfolio
 		top:0;
 		left:0;
 		background-color:#0f1010;
-		background-image:url(images/rotate.png);
+		background-image:url(../rotate.webp);
 		background-size:100px 100px;
 		background-position:center;
 		background-repeat:no-repeat;
@@ -1719,7 +1719,7 @@ Primary use:	Showcase Portfolio
 		position:relative;
 		/* width:100%; */
 		height:140px;
-		z-index:900;
+		z-index: 0;
 		box-sizing:border-box;
 		text-align:center;
 		bottom:0;
